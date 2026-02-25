@@ -1,0 +1,20 @@
+{
+  "name": "enterprise-playwright-framework",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:UI_Chrome": "playwright test --project=UI-Chromium",
+    "test:UI_Firefox": "playwright test --project=UI-Firefox",
+    "test:UI_safari": "playwright test --project=UI-Webkit",
+    "test:api": "playwright test --project=API"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.0"
+  }
+}

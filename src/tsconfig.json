@@ -1,0 +1,27 @@
+// {
+//     "compilerOptions": {
+//       "target": "ES6",
+//       "module": "commonjs",
+//       "strict": true,
+//       "esModuleInterop": true,
+//       "resolveJsonModule": true,
+//       "types": ["node", "@playwright/test"]
+//     }
+//   }
+
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "@pages/*": ["pages/*"],
+      "@utils/*": ["utils/*"],
+      "@config/*": ["config/*"]
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strict": true
+  }
+}

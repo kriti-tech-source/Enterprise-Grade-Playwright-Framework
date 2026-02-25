@@ -43,12 +43,13 @@ The Playwright CI workflow automatically runs on every **push** or **pull reques
 Here’s a visual overview of the CI pipeline:
 
 ```mermaid
-flowchart TD
-    A[Push / Pull Request to main] --> B[GitHub Actions Workflow Triggered]
-    B --> C[Checkout Repository]
-    C --> D[Setup Node.js Environment]
-    D --> E[Install Dependencies (npm ci)]
-    E --> F[Install Playwright Browsers]
-    F --> G[Run Playwright Tests]
-    G --> H[Upload Playwright Test Report Artifact]
+graph TD
+    A[Start] --> B["Install Dependencies (npm ci)"]
+    B --> C[Run Linting]
+    C --> D[Run Unit Tests]
+    D --> E{Tests Pass?}
+    E -- Yes --> F[Build Application]
+    E -- No --> G[Fix Errors]
+    G --> B
+    F --> H[Deploy to Production]
 

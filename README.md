@@ -1,3 +1,4 @@
+
 # Enterprise Playwright Framework
 
 ## Tech Stack
@@ -24,4 +25,5 @@ npx playwright test
 docker build -t playwright-framework .
 docker run playwright-framework
 
-![alt text](image.png)
+
+

@@ -26,5 +26,6 @@ docker build -t playwright-framework .
 docker run playwright-framework
 
 ## Test Report Screenshot
-![alt text](image-1.png)
+<img width="1091" height="497" alt="image" src="https://github.com/user-attachments/assets/b2e614a5-606c-4d7a-8253-087364f5bbc6" />
+
 

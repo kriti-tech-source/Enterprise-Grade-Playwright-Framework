@@ -25,5 +25,6 @@ npx playwright test
 docker build -t playwright-framework .
 docker run playwright-framework
 
-
+## Test Report Screenshot
+![alt text](image-1.png)
 

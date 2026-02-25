@@ -31,7 +31,8 @@ docker run playwright-framework
 
 # Enterprise Playwright Framework
 
-![Playwright CI](https://github.com/kriti-tech-source/Enterprise-Grade-Playwright-Framework/actions/workflows/playwright.yaml/badge.svg)
+![Playwright CI](https://github.com/kriti-tech-source/Enterprise-Grade-Playwright-Framework/actions/workflows/playwright.yml/badge.svg)
+                
 
 This repository contains an **enterprise-grade Playwright framework** with CI integration for automated testing of UI and API projects.
 

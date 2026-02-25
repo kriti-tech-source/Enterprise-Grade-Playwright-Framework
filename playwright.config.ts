@@ -131,7 +131,7 @@ export default defineConfig({
     baseURL: ENV.UI_BASE_URL,   // Only for UI navigation
 
     // Browser settings
-    headless: false,
+    headless: true,
     viewport: { width: 1280, height: 720 },
 
     // Capture artifacts

@@ -28,6 +28,14 @@ docker run playwright-framework
 ## Test Report Screenshot
 <img width="1091" height="497" alt="image" src="https://github.com/user-attachments/assets/b2e614a5-606c-4d7a-8253-087364f5bbc6" />
 
+# Allure Report
+ npm install -D allure-playwright
+ npx playwright test --reporter=line,allure-playwright
+ npx allure generate ./allure-results --clean
+ npx allure-commandline open
+
+![alt text](AdobeExpressPhotos_e963cb6d1ae9420286dd14f914f712b4_CopyEdited.png)
+
 
 # Enterprise Playwright Framework
 

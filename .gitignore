@@ -8,3 +8,7 @@ playwright-report
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Allure reports and results
+allure-results/
+allure-report/

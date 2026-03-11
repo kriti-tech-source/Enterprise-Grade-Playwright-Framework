@@ -5,7 +5,7 @@ pipeline {
         
         stage('Install') {
             steps {
-                // Using 'bat' because your logs show you are on Windows
+                
                 bat 'npm install'
                 bat 'npx playwright install --with-deps'
             }

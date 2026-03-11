@@ -46,19 +46,18 @@ This repository contains an **enterprise-grade Playwright framework** with CI in
 
 ---
 
-## CI Workflow Overview
+## Scalable Test Orchestration (CI/CD)
 
-The Playwright CI workflow automatically runs on every **push** or **pull request** to `main`.  
-Here’s a visual overview of the CI pipeline:
+This framework is architected for **Horizontal Scalability**. Instead of a single-node execution, it utilizes **Test Sharding** to distribute workloads across multiple ephemeral servers simultaneously.
+
+### Distributed CI Pipeline Overview
 
 ```mermaid
 graph TD
-    A[Start] --> B["Install Dependencies (npm ci)"]
-    B --> C[Run Linting]
-    C --> D[Run Unit Tests]
-    D --> E{Tests Pass?}
-    E -- Yes --> F[Build Application]
-    E -- No --> G[Fix Errors]
-    G --> B
-    F --> H[Deploy to Production]
-
+    A[Code Push] --> B{GitHub/Jenkins Orchestrator}
+    B -- Matrix Shard 1 --> C[Node 1: UI Tests]
+    B -- Matrix Shard 2 --> D[Node 2: API Tests Part 1]
+    B -- Matrix Shard 3 --> E[Node 3: API Tests Part 2]
+    C & D & E --> F[Upload Blob Artifacts]
+    F --> G[Merge Job: Unified HTML Report]
+    G --> H[Final Status: Success/Failure]

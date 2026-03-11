@@ -1,18 +1,16 @@
 pipeline {
     agent any 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com'
-            }
-        }
+        
+        
         stage('Install') {
             steps {
-                // Use 'bat' for Windows, 'sh' for Linux
+                // Using 'bat' because your logs show you are on Windows
                 bat 'npm install'
                 bat 'npx playwright install --with-deps'
             }
         }
+        
         stage('Run Sharded Tests') {
             parallel {
                 stage('Shard 1') {

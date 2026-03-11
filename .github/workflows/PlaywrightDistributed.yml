@@ -1,0 +1,43 @@
+name: Playwright Distributed - GitHub Hosted
+on: [push, pull_request]
+
+jobs:
+  playwright-execution:
+    
+    runs-on: ubuntu-latest 
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # --- UI Execution (1 Virtual Server) ---
+          - test_type: "@UI"
+            shardIndex: 1
+            shardTotal: 1
+          
+          # --- API Execution (2 Virtual Servers) ---
+          - test_type: "@API"
+            shardIndex: 1
+            shardTotal: 2
+          - test_type: "@API"
+            shardIndex: 2
+            shardTotal: 2
+          
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 18}
+      - run: npm ci
+      
+     
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+        
+      - name: Run Sharded Tests
+        run: npx playwright test --grep ${{ matrix.test_type }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      
+      - name: Upload Shard Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: blob-report-${{ matrix.test_type }}-${{ matrix.shardIndex }}
+          path: blob-report
